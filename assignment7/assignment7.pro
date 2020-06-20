@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        cartvec2d.cpp \
+        dofxyrz.cpp \
         main.cpp
+
+HEADERS += \
+    cartvec2d.h \
+    dofxyrz.h

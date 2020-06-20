@@ -4,8 +4,11 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        cartvec2d.cpp \
+        RotationMotor.cpp \
+        commandprocessor.cpp \
         main.cpp
 
 HEADERS += \
-    cartvec2d.h
+    RotationMotor.h \
+    commandprocessor.h \
+    main.h

@@ -3,7 +3,7 @@
 
 std::ostream& operator<< (std::ostream &os, const DOFxyRz &rhs)
 {
-    os << "[" << rhs.vect << "," << rhs.Rz_ << "]" << "\n";
+    os << "[" << rhs.vect << "," << rhs.getRz() << "]" << "\n";
     return os;
 }
 
@@ -15,19 +15,35 @@ void DOFxyRz::setRz(double &val) {
     Rz_ = val;
 }
 
-DOFxyRz operator+= (const CartVec2D &lhs, const CartVec2D &rhs)
+
+
+DOFxyRz operator+= (DOFxyRz &lhs, const CartVec2D &rhs)
+{
+    lhs.vect += rhs;
+    return lhs;
+}
+
+DOFxyRz operator-= (const DOFxyRz &lhs, const CartVec2D &rhs)
 {
     DOFxyRz result;
-    result.vect = lhs;
-    result.vect += rhs;
+    result = lhs;
+    result.vect -= rhs;
     return result;
 }
 
-DOFxyRz operator-= (const CartVec2D &lhs, const CartVec2D &rhs)
+DOFxyRz operator+=(DOFxyRz &lhs, const double &rhs)
+{
+    lhs.Rz_ += rhs;
+    return lhs;
+}
+
+DOFxyRz operator-=(const DOFxyRz &lhs, const double &rhs)
 {
     DOFxyRz result;
-    result.vect = lhs;
-    result.vect -= rhs;
+    result = lhs;
+    double newRz = result.getRz();
+    newRz -= rhs;
+    result.setRz(newRz);
     return result;
 }
 
@@ -47,7 +63,7 @@ DOFxyRz operator- (const DOFxyRz &lhs, const CartVec2D &rhs)
     return result;
 }
 
-DOFxyRz operator+ (const DOFxyRz &lhs, double &rhs)
+DOFxyRz operator+ (const DOFxyRz &lhs, const double &rhs)
 {
     DOFxyRz result;
     result = lhs;
@@ -66,7 +82,7 @@ DOFxyRz operator+ (const DOFxyRz &lhs, double &rhs)
     return result;
 }
 
-DOFxyRz operator- (const DOFxyRz &lhs, double &rhs)
+DOFxyRz operator- (const DOFxyRz &lhs, const double &rhs)
 {
     DOFxyRz result;
     result = lhs;

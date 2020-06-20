@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        device.cpp \
+        main.cpp \
+        motor.cpp
+
+HEADERS += \
+    device.h \
+    motor.h

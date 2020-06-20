@@ -1,4 +1,5 @@
 #include "cartvec2d.h"
+#include <math.h>
 
 void CartVec2D::setCartVec2D(double &x, double &y) {
     x_ = x;
@@ -15,7 +16,7 @@ double CartVec2D::getCartVec2Dy() const {
 
 std::ostream& operator<< (std::ostream &os, const CartVec2D &rhs)
 {
-    os << "[" << rhs.x_ << "," << rhs.y_ << "[" << "\n";
+    os << "[" << rhs.x_ << "," << rhs.y_ << "]";
     return os;
 }
 
@@ -72,4 +73,8 @@ CartVec2D operator* (const CartVec2D &rhs, double scalar)
     result.x_ = result.x_*scalar;
     result.y_ = result.y_*scalar;
     return result;
+}
+
+double CartVec2D::length() const {
+    return sqrt(x_*x_+y_*y_);
 }

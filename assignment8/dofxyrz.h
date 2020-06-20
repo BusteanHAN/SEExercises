@@ -6,12 +6,13 @@
 class DOFxyRz
 {
     friend std::ostream& operator<<(std::ostream &os, const DOFxyRz &rhs);
-    friend DOFxyRz operator+=(const CartVec2D &lhs, const CartVec2D &rhs);
-    friend DOFxyRz operator-=(const CartVec2D &lhs, const CartVec2D &rhs);
+    friend DOFxyRz operator+=(DOFxyRz &lhs, const CartVec2D &rhs);
     friend DOFxyRz operator+ (const DOFxyRz &lhs, const CartVec2D &rhs);
     friend DOFxyRz operator- (const DOFxyRz &lhs, const CartVec2D &rhs);
-    friend DOFxyRz operator+ (const DOFxyRz &lhs, double &rhs);
-    friend DOFxyRz operator- (const DOFxyRz &lhs, double &rhs);
+    friend DOFxyRz operator-=(const DOFxyRz &lhs, const CartVec2D &rhs);
+    friend DOFxyRz operator+=(DOFxyRz &lhs, const double &rhs);
+    friend DOFxyRz operator+ (const DOFxyRz &lhs, const double &rhs);
+    friend DOFxyRz operator- (const DOFxyRz &lhs, const double &rhs);
 public:
     CartVec2D vect;
     DOFxyRz(double x, double y, double Rz): Rz_(Rz) {vect.setCartVec2D(x, y);}

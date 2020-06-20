@@ -13,8 +13,8 @@ class CartVec2D
     friend CartVec2D operator* (const CartVec2D &rhs, double scalar);
 public:
     CartVec2D(double x, double y): x_(x), y_(y) {}
-        /// Using C++11 ctor delegation for the default ctor.
-        CartVec2D(): CartVec2D(0.0, 0.0){}
+    /// Using C++11 ctor delegation for the default ctor.
+    CartVec2D(): CartVec2D(0.0, 0.0){}
     /// Default copy ctor.
     CartVec2D(const CartVec2D &other) = default;
     /// Default assignment operator.
@@ -29,9 +29,9 @@ public:
     void setCartVec2D(double &x, double &y);
     double getCartVec2Dx() const;
     double getCartVec2Dy() const;
-    private:
+private:
     double x_;
     double y_;
-    };
+};
 
 #endif // CARTVEC2D_H
